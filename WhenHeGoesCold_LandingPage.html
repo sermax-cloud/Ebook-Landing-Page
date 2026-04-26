@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When He Goes Cold — The eBook for African Women</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine:    #2D0A1E;
+    --wine2:   #1A0A10;
+    --wine3:   #3D1428;
+    --rose:    #C9947A;
+    --rose2:   #B8816A;
+    --blush:   #FAF0E8;
+    --cream:   #FDF6F0;
+    --mauve:   #5C3045;
+    --deeprose:#993556;
+    --pinktan: #D4A89A;
+    --muted:   #B4A09A;
+    --serif:   'Cormorant Garamond', Georgia, serif;
+    --sans:    'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--wine);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(45,10,30,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,148,122,0.2);
+    padding: 0 5%;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 600;
+    color: var(--cream); letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--rose); }
+  .nav-cta {
+    background: var(--rose); color: var(--wine);
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 10px 22px; border-radius: 2px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: #D9A48A; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    background: var(--wine);
+    min-height: 100vh;
+    padding: 120px 5% 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,148,122,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,148,122,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rose);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--rose);
+  }
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 600; line-height: 1.12;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+  .hero-h1 em { color: var(--rose); font-style: italic; }
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.8vw, 20px);
+    font-weight: 400; font-style: italic;
+    color: var(--pinktan); line-height: 1.6;
+    margin-bottom: 36px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 36px;
+  }
+  .pill {
+    font-family: var(--sans);
+    font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+    color: var(--rose); border: 1px solid rgba(201,148,122,0.5);
+    padding: 6px 16px; border-radius: 2px;
+  }
+  .hero-btn {
+    display: inline-block;
+    background: var(--rose); color: var(--wine);
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 16px 40px; border-radius: 2px;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 14px; display: block; text-align: center; width: fit-content;
+  }
+  .hero-btn:hover { background: #D9A48A; transform: translateY(-2px); }
+  .hero-micro {
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+  }
+
+  /* book mockup */
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .book-wrap {
+    position: relative;
+    width: 280px;
+    transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
+    filter: drop-shadow(-20px 24px 40px rgba(0,0,0,0.55));
+    transition: transform 0.4s ease;
+  }
+  .book-wrap:hover {
+    transform: perspective(800px) rotateY(-4deg) rotateX(1deg) translateY(-6px);
+  }
+  .book-cover {
+    width: 100%; aspect-ratio: 2/3;
+    background: var(--wine2);
+    border-radius: 2px 8px 8px 2px;
+    border: 1px solid rgba(201,148,122,0.3);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 32px 24px; gap: 12px;
+    position: relative; overflow: hidden;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,148,122,0.04) 0%, transparent 60%);
+  }
+  .book-top-bar {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--rose);
+  }
+  .book-tag {
+    font-family: var(--sans); font-size: 9px;
+    font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 8px;
+  }
+  .book-orn {
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    justify-content: center; margin-bottom: 4px;
+  }
+  .book-orn-line { flex: 1; height: 0.5px; background: rgba(201,148,122,0.4); }
+  .book-orn-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+  .book-title-main {
+    font-family: var(--serif); font-size: 28px; font-weight: 700;
+    color: var(--cream); text-align: center; line-height: 1.1;
+  }
+  .book-title-accent {
+    font-family: var(--serif); font-size: 34px; font-weight: 700;
+    color: var(--rose); text-align: center; line-height: 1;
+  }
+  .book-subtitle {
+    font-family: var(--sans); font-size: 10px; font-weight: 300;
+    color: var(--pinktan); text-align: center; line-height: 1.5;
+    margin-top: 8px;
+  }
+  .book-spine {
+    position: absolute; left: -16px; top: 0; bottom: 0;
+    width: 16px;
+    background: var(--wine3);
+    border-radius: 2px 0 0 2px;
+    border: 1px solid rgba(201,148,122,0.15);
+  }
+  .book-glow {
+    position: absolute; top: -60px; left: -60px; right: -60px; bottom: -60px;
+    background: radial-gradient(ellipse at center, rgba(201,148,122,0.1) 0%, transparent 65%);
+    pointer-events: none; z-index: -1;
+  }
+
+  /* ── PAIN ── */
+  #pain {
+    background: var(--blush);
+    padding: 100px 5%;
+  }
+  .section-eyebrow {
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::before {
+    content: ''; width: 28px; height: 1px; background: var(--rose);
+  }
+  .section-h2 {
+    font-family: var(--serif); font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600; line-height: 1.15;
+    color: var(--wine); margin-bottom: 14px;
+  }
+  .section-h2 em { color: var(--deeprose); font-style: italic; }
+  .section-lead {
+    font-size: 16px; color: var(--mauve); line-height: 1.7;
+    max-width: 560px; margin-bottom: 56px;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin-bottom: 56px;
+  }
+  .pain-card {
+    background: var(--cream);
+    border-left: 3px solid var(--rose);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 22px;
+    font-family: var(--serif);
+    font-size: 17px; font-weight: 400; font-style: italic;
+    color: var(--wine); line-height: 1.55;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s;
+  }
+  .pain-card.visible { opacity: 1; transform: translateY(0); }
+  .pain-card:hover { box-shadow: 0 4px 24px rgba(45,10,30,0.08); }
+  .pain-close {
+    font-family: var(--serif); font-size: clamp(22px, 3vw, 32px);
+    font-weight: 600; color: var(--wine); text-align: center;
+    font-style: italic;
+  }
+  .pain-close span { color: var(--rose); }
+
+  /* ── INSIDE ── */
+  #inside {
+    background: var(--cream);
+    padding: 100px 5%;
+  }
+  .inside-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start; margin-top: 56px;
+  }
+  .parts-list { display: grid; gap: 28px; }
+  .part-item {
+    border-top: 1px solid rgba(201,148,122,0.3);
+    padding-top: 20px;
+    opacity: 0; transform: translateX(-16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .part-item.visible { opacity: 1; transform: translateX(0); }
+  .part-num {
+    font-family: var(--sans); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 6px;
+  }
+  .part-title {
+    font-family: var(--serif); font-size: 20px; font-weight: 600;
+    color: var(--wine); margin-bottom: 8px;
+  }
+  .part-desc { font-size: 14px; color: var(--mauve); line-height: 1.65; }
+  .toc-panel {
+    background: var(--wine);
+    border-radius: 12px; padding: 32px 28px;
+    opacity: 0; transform: translateX(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .toc-panel.visible { opacity: 1; transform: translateX(0); }
+  .toc-heading {
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 20px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(201,148,122,0.2);
+  }
+  .toc-list { display: grid; gap: 12px; margin-bottom: 24px; }
+  .toc-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 13px; color: var(--pinktan); line-height: 1.5;
+  }
+  .toc-item-num {
+    font-family: var(--serif); font-size: 13px; font-style: italic;
+    color: rgba(201,148,122,0.5); flex-shrink: 0; width: 22px;
+  }
+  .bonus-row { display: grid; gap: 10px; }
+  .bonus-badge {
+    background: rgba(201,148,122,0.12);
+    border: 1px solid rgba(201,148,122,0.3);
+    border-radius: 4px; padding: 10px 14px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .bonus-star {
+    width: 18px; height: 18px; flex-shrink: 0;
+    background: var(--rose); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: var(--wine); font-weight: 700;
+  }
+  .bonus-text { font-size: 13px; color: var(--cream); font-weight: 400; }
+
+  /* ── TRANSFORM ── */
+  #transform {
+    background: var(--wine2);
+    padding: 100px 5%;
+    position: relative; overflow: hidden;
+  }
+  #transform::before {
+    content: ''; position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 100%;
+    background: rgba(201,148,122,0.15);
+  }
+  .transform-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; margin-top: 60px;
+  }
+  .transform-col-head {
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 24px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,148,122,0.2);
+  }
+  .transform-before .transform-col-head { color: rgba(212,168,154,0.4); }
+  .transform-after .transform-col-head { color: var(--rose); }
+  .transform-items { display: grid; gap: 14px; }
+  .transform-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 15px; line-height: 1.55;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .transform-item.visible { opacity: 1; transform: translateY(0); }
+  .transform-before .transform-item { color: rgba(212,168,154,0.45); }
+  .transform-after .transform-item { color: var(--pinktan); }
+  .t-icon {
+    width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+  }
+  .t-icon.x { background: rgba(226,75,74,0.15); color: rgba(226,75,74,0.5); }
+  .t-icon.check { background: rgba(201,148,122,0.15); color: var(--rose); }
+
+  /* ── PROOF ── */
+  #proof {
+    background: var(--blush); padding: 100px 5%;
+  }
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px; margin-top: 56px;
+  }
+  .testimonial {
+    background: var(--cream);
+    border-radius: 8px;
+    border: 1px solid rgba(201,148,122,0.2);
+    padding: 28px 24px;
+    position: relative; overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s;
+  }
+  .testimonial::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--rose);
+  }
+  .testimonial.visible { opacity: 1; transform: translateY(0); }
+  .testimonial:hover { box-shadow: 0 8px 32px rgba(45,10,30,0.1); }
+  .test-quote {
+    font-family: var(--serif); font-size: 16px; font-style: italic;
+    color: var(--wine); line-height: 1.65; margin-bottom: 20px;
+  }
+  .test-quote::before {
+    content: '\201C';
+    font-size: 48px; line-height: 0.6; color: var(--rose);
+    display: block; margin-bottom: 12px; font-style: normal;
+  }
+  .test-who { font-size: 13px; font-weight: 500; color: var(--rose); }
+  .test-loc { font-size: 12px; color: var(--mauve); margin-top: 2px; }
+
+  /* ── AUTHOR ── */
+  #author {
+    background: var(--cream); padding: 100px 5%;
+  }
+  .author-grid {
+    display: grid; grid-template-columns: 260px 1fr;
+    gap: 60px; align-items: center; margin-top: 0;
+  }
+  .author-img {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: var(--wine);
+    border: 4px solid rgba(201,148,122,0.3);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .author-img-inner {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--wine3) 0%, var(--wine2) 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 6px;
+  }
+  .author-icon {
+    width: 60px; height: 60px;
+    border: 2px solid rgba(201,148,122,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .author-initials {
+    font-family: var(--serif); font-size: 24px; font-weight: 600;
+    color: var(--rose);
+  }
+  .author-label {
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,148,122,0.5);
+  }
+  .author-bio {
+    font-family: var(--serif); font-size: clamp(17px, 2vw, 21px);
+    font-weight: 400; font-style: italic;
+    color: var(--wine); line-height: 1.7; margin-bottom: 20px;
+  }
+  .author-meta {
+    font-size: 13px; color: var(--mauve); letter-spacing: 0.04em;
+  }
+  .author-meta span { color: var(--rose); }
+
+  /* ── FINAL CTA ── */
+  #cta-final {
+    background: var(--wine);
+    padding: 100px 5%; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #cta-final::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,148,122,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta-final-ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 32px;
+  }
+  .cta-orn-line { width: 60px; height: 1px; background: rgba(201,148,122,0.4); }
+  .cta-orn-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+  .cta-h2 {
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 52px);
+    font-weight: 600; font-style: italic;
+    color: var(--cream); line-height: 1.2;
+    max-width: 700px; margin: 0 auto 20px;
+  }
+  .cta-h2 em { color: var(--rose); font-style: normal; }
+  .cta-sub {
+    font-size: 15px; color: var(--pinktan); line-height: 1.7;
+    max-width: 520px; margin: 0 auto 44px;
+  }
+  .cta-main-btn {
+    display: inline-block;
+    background: var(--rose); color: var(--wine);
+    font-family: var(--sans); font-size: 16px; font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 18px 52px; border-radius: 2px;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 16px;
+  }
+  .cta-main-btn:hover { background: #D9A48A; transform: translateY(-2px); }
+  .cta-reassure {
+    font-size: 12px; color: var(--muted); letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--wine2);
+    border-top: 1px solid rgba(201,148,122,0.15);
+    padding: 40px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand {
+    font-family: var(--serif); font-size: 16px; font-weight: 600;
+    color: var(--pinktan); letter-spacing: 0.04em;
+  }
+  .footer-brand span { color: var(--rose); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 12px; color: var(--muted); text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--rose); }
+  .footer-copy { font-size: 12px; color: var(--muted); width: 100%; }
+
+  /* ── DIVIDERS ── */
+  .orn-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin: 16px 0 48px;
+  }
+  .orn-divider-line { width: 80px; height: 0.5px; background: rgba(201,148,122,0.4); }
+  .orn-divider-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    #hero { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-btn { width: 100%; }
+    .hero-pills { justify-content: center; }
+    .hero-visual { order: -1; }
+    .book-wrap { width: 200px; }
+    .inside-grid { grid-template-columns: 1fr; }
+    .transform-grid { grid-template-columns: 1fr; }
+    .author-grid { grid-template-columns: 1fr; text-align: center; }
+    .author-img { margin: 0 auto; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+    #transform::before { display: none; }
+  }
+  @media (max-width: 500px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-h1      { animation-delay: 0.2s; }
+  .hero-sub     { animation-delay: 0.35s; }
+  .hero-pills   { animation-delay: 0.45s; }
+  .hero-btn     { animation-delay: 0.55s; }
+  .hero-micro   { animation-delay: 0.65s; }
+  .hero-visual  { animation: fadeUp 0.8s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <div class="nav-logo">When He <span>Goes Cold</span></div>
+  <a href="https://www.skillspad.org/products/8977874a3f" class="nav-cta">Get Instant Access</a>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">A guide for African women</div>
+    <h1 class="hero-h1">He Was Warm.<br>Then He Went Quiet.<br><em>This Book Explains Why.</em></h1>
+    <p class="hero-sub">"The honest, African-context guide for women who are tired of chasing and ready to finally be chosen."</p>
+    <div class="hero-pills">
+      <span class="pill">12 Chapters</span>
+      <span class="pill">Instant Download</span>
+      <span class="pill">Written for African Women</span>
+    </div>
+    <a href="https://www.skillspad.org/products/8977874a3f" class="hero-btn">Yes — I Want My Copy Now</a>
+    <div class="hero-micro">Instant PDF download &nbsp;·&nbsp; Read on any device &nbsp;·&nbsp; Yours to keep forever</div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="book-wrap">
+      <div class="book-spine"></div>
+      <div class="book-glow"></div>
+      <div class="book-cover">
+        <div class="book-top-bar"></div>
+        <div class="book-tag">A transformational guide for African women</div>
+        <div class="book-orn">
+          <div class="book-orn-line"></div>
+          <div class="book-orn-dot"></div>
+          <div class="book-orn-line"></div>
+        </div>
+        <div class="book-title-main">WHEN HE</div>
+        <div class="book-title-accent">GOES COLD</div>
+        <div class="book-orn">
+          <div class="book-orn-line"></div>
+          <div class="book-orn-dot"></div>
+          <div class="book-orn-line"></div>
+        </div>
+        <div class="book-subtitle">Why Men Pull Away — What You're<br>Doing That Makes It Worse, and How<br>to Transform Your Relationship Forever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PAIN ════ -->
+<section id="pain">
+  <div class="section-eyebrow">Does this sound familiar?</div>
+  <h2 class="section-h2">You deserve <em>real</em> answers.</h2>
+  <p class="section-lead">Not another quote telling you to "focus on yourself." Not vague advice from someone who has never lived your reality. Real, honest, compassionate answers.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card">"He was warm and attentive — now he barely replies."</div>
+    <div class="pain-card">"You've replayed every conversation trying to figure out what you did wrong."</div>
+    <div class="pain-card">"The more you reach out, the more distant he becomes."</div>
+    <div class="pain-card">"You feel anxious, confused, and embarrassed to admit how much this is affecting you."</div>
+    <div class="pain-card">"Friends tell you to move on — but you know something deeper is going on."</div>
+    <div class="pain-card">"You just want the truth — not another quote telling you to focus on yourself."</div>
+  </div>
+
+  <div class="orn-divider">
+    <div class="orn-divider-line"></div>
+    <div class="orn-divider-dot"></div>
+    <div class="orn-divider-line"></div>
+  </div>
+  <p class="pain-close"><em>This book was written for <span>exactly this moment.</span></em></p>
+</section>
+
+<!-- ════ WHAT'S INSIDE ════ -->
+<section id="inside">
+  <div class="section-eyebrow">What's inside</div>
+  <h2 class="section-h2">Everything you need.<br>Nothing you don't.</h2>
+
+  <div class="inside-grid">
+    <div class="parts-list">
+      <div class="part-item">
+        <div class="part-num">Part One</div>
+        <div class="part-title">Why Men Go Cold</div>
+        <div class="part-desc">Understand the male emotional blueprint and the 8 real reasons he withdraws — including the one nobody talks about.</div>
+      </div>
+      <div class="part-item">
+        <div class="part-num">Part Two</div>
+        <div class="part-title">The Honest Mirror</div>
+        <div class="part-desc">The 4 things most women unknowingly do that push men further away — written with compassion, not blame.</div>
+      </div>
+      <div class="part-item">
+        <div class="part-num">Part Three</div>
+        <div class="part-title">What To Do Right Now</div>
+        <div class="part-desc">A step-by-step plan starting with the critical first 72 hours — what to say, what never to say, and when to walk away.</div>
+      </div>
+      <div class="part-item">
+        <div class="part-num">Part Four</div>
+        <div class="part-title">Becoming The Woman Who Never Chases</div>
+        <div class="part-desc">Build the internal foundation that makes you magnetic — not desperate.</div>
+      </div>
+    </div>
+
+    <div class="toc-panel">
+      <div class="toc-heading">Full chapter list</div>
+      <div class="toc-list">
+        <div class="toc-item"><span class="toc-item-num">1</span>How the male mind actually works</div>
+        <div class="toc-item"><span class="toc-item-num">2</span>The 8 real reasons men go cold</div>
+        <div class="toc-item"><span class="toc-item-num">3</span>Emotional unavailability vs. temporary withdrawal</div>
+        <div class="toc-item"><span class="toc-item-num">4</span>The pressure that pushes him further away</div>
+        <div class="toc-item"><span class="toc-item-num">5</span>Nagging, criticism and the slow erosion of desire</div>
+        <div class="toc-item"><span class="toc-item-num">6</span>Moving too fast — how rushing scares him into silence</div>
+        <div class="toc-item"><span class="toc-item-num">7</span>Insecurity, jealousy and patterns from the past</div>
+        <div class="toc-item"><span class="toc-item-num">8</span>The first 72 hours — the most important thing you can do</div>
+        <div class="toc-item"><span class="toc-item-num">9</span>Having the conversation without pushing him further away</div>
+        <div class="toc-item"><span class="toc-item-num">10</span>When to stay and fight — and when to leave with dignity</div>
+        <div class="toc-item"><span class="toc-item-num">11</span>Building security within yourself no man can take away</div>
+        <div class="toc-item"><span class="toc-item-num">12</span>What a healthy, emotionally present relationship looks like</div>
+      </div>
+      <div class="bonus-row">
+        <div class="bonus-badge">
+          <div class="bonus-star">+</div>
+          <div class="bonus-text">Bonus: 72-Hour Response Checklist</div>
+        </div>
+        <div class="bonus-badge">
+          <div class="bonus-star">+</div>
+          <div class="bonus-text">Bonus: 7-Day Transformation Challenge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BEFORE / AFTER ════ -->
+<section id="transform">
+  <div class="section-eyebrow" style="color:var(--rose);">The transformation</div>
+  <h2 class="section-h2" style="color:var(--cream);">What changes when<br>you read this book</h2>
+
+  <div class="transform-grid">
+    <div class="transform-before">
+      <div class="transform-col-head">Before</div>
+      <div class="transform-items">
+        <div class="transform-item"><div class="t-icon x">✕</div><span>Sending 10 messages and getting silence</span></div>
+        <div class="transform-item"><div class="t-icon x">✕</div><span>Blaming yourself for everything</span></div>
+        <div class="transform-item"><div class="t-icon x">✕</div><span>Feeling anxious every time he goes quiet</span></div>
+        <div class="transform-item"><div class="t-icon x">✕</div><span>Chasing love that keeps moving away</span></div>
+        <div class="transform-item"><div class="t-icon x">✕</div><span>Accepting less than you deserve</span></div>
+      </div>
+    </div>
+    <div class="transform-after">
+      <div class="transform-col-head">After reading</div>
+      <div class="transform-items">
+        <div class="transform-item"><div class="t-icon check">✓</div><span>Knowing exactly what his silence means</span></div>
+        <div class="transform-item"><div class="t-icon check">✓</div><span>Responding with calm, grounded confidence</span></div>
+        <div class="transform-item"><div class="t-icon check">✓</div><span>Understanding yourself and your patterns</span></div>
+        <div class="transform-item"><div class="t-icon check">✓</div><span>Drawing him back through who you are — not what you do</span></div>
+        <div class="transform-item"><div class="t-icon check">✓</div><span>Loving from a place of security, not fear</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SOCIAL PROOF ════ -->
+<section id="proof">
+  <div class="section-eyebrow">What women are saying</div>
+  <h2 class="section-h2">Real women.<br><em>Real change.</em></h2>
+
+  <div class="proof-grid">
+    <div class="testimonial">
+      <div class="test-quote">I stopped chasing him after Chapter 8. Two days later he called me first. I genuinely could not believe it.</div>
+      <div class="test-who">Abena, 29</div>
+      <div class="test-loc">Accra, Ghana</div>
+    </div>
+    <div class="testimonial">
+      <div class="test-quote">Chapter 7 made me cry. I finally understood that I was the one pushing him away — and I finally knew how to stop.</div>
+      <div class="test-who">Ife, 33</div>
+      <div class="test-loc">Lagos, Nigeria</div>
+    </div>
+    <div class="testimonial">
+      <div class="test-quote">This is the book I wish I had 5 years ago. Every woman in Ghana needs to read this. No exaggeration.</div>
+      <div class="test-who">Afia, 27</div>
+      <div class="test-loc">Kumasi, Ghana</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ AUTHOR ════ -->
+<section id="author">
+  <div class="author-grid">
+    <div>
+      <div class="author-img">
+        <div class="author-img-inner">
+          <div class="author-icon">
+            <div class="author-initials">RW</div>
+          </div>
+          <div class="author-label">Author</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow">About this book</div>
+      <p class="author-bio">"This guide was born from real conversations with real African women — the late-night questions, the unanswered texts, the silent tears. It was written because the advice that exists was not written for us, our culture, or the specific pressures we face. It was written to finally give you the truth you deserve."</p>
+      <div class="author-meta">Relationship Wisdom Series &nbsp;·&nbsp; <span>Published in Ghana</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FINAL CTA ════ -->
+<section id="cta-final">
+  <div class="cta-final-ornament">
+    <div class="cta-orn-line"></div>
+    <div class="cta-orn-dot"></div>
+    <div class="cta-orn-line"></div>
+  </div>
+  <h2 class="cta-h2">"Your warmth is not the problem.<br>It is your <em>greatest power.</em>"</h2>
+  <p class="cta-sub">This book will not just explain why he went cold. It will change how you love — and how you are loved — forever.</p>
+  <a href="https://www.skillspad.org/products/8977874a3f" class="cta-main-btn">Get Instant Access — Download Now</a>
+  <div style="display:block;margin-top:14px;">
+    <div class="cta-reassure">PDF &nbsp;·&nbsp; Instant download &nbsp;·&nbsp; One-time purchase</div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-brand">When He <span>Goes Cold</span></div>
+  <div class="footer-links">
+    <a href="#">Refund Policy</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">© 2025 When He Goes Cold · Relationship Wisdom Series · Published in Ghana. All rights reserved.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.pain-card').forEach((el, i) => {
+    el.dataset.delay = i * 80;
+    observer.observe(el);
+  });
+  document.querySelectorAll('.part-item').forEach((el, i) => {
+    el.dataset.delay = i * 100;
+    observer.observe(el);
+  });
+  document.querySelectorAll('.toc-panel').forEach(el => observer.observe(el));
+  document.querySelectorAll('.transform-item').forEach((el, i) => {
+    el.dataset.delay = i * 70;
+    observer.observe(el);
+  });
+  document.querySelectorAll('.testimonial').forEach((el, i) => {
+    el.dataset.delay = i * 120;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
